@@ -1,0 +1,134 @@
+/* General Styles */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Heading Style */
+.heading {
+    color: #4a4aeb;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Main Form Container */
+.main {
+    max-width: 80%;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+
+/* Section Headings */
+.personal {
+    color: #4a90e2;
+    background-color: #e6f7ff;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="file"],
+textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+/* File Input */
+input[type="file"] {
+    padding: 8px;
+    background-color: #f8f8f8;
+    cursor: pointer;
+}
+
+/* Textarea Styling */
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Buttons */
+input[type="button"],
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #4a90e2;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+input[type="button"]:hover,
+button:hover {
+    background-color: #357abd;
+}
+
+/* Resume Output Styling */
+.resume-output {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.resume-output h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.resume-output p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* Profile Picture */
+#outputImage {
+    max-width: 150px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 2px solid #e6e6e6;
+}
+
+/* Shareable Link Styling */
+#shareableLink {
+    margin-top: 15px;
+}
+
+#uniqueLink {
+    color: #4a90e2;
+    text-decoration: none;
+}
+
+#uniqueLink:hover {
+    text-decoration: underline;
+}

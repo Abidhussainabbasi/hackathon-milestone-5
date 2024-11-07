@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Resume with Shareable Link</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="heading"><strong>Editable Resume with Unique Path</strong></div>
+    <div class="main">
+        <form id="resumeform">
+            <!-- Personal Info Section -->
+            <div class="personal"><strong>Personal Info</strong></div>
+            <label for="picture"><strong>Upload Picture</strong></label>
+            <input type="file" name="picture" id="picture" class="forpic" accept="image/*"><br><br>
+            <label for="name"><strong>Name:</strong></label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email"><strong>Email:</strong></label>
+            <input type="email" name="email" id="email" required><br><br>
+            <label for="phone"><strong>Phone Number:</strong></label>
+            <input type="tel" name="phone" id="phone" required><br><br>
+            <label for="address"><strong>Address:</strong></label>
+            <input type="text" name="address" id="address" required><br><br>
+
+            <!-- Skills Section -->
+            <div class="personal"><strong>Skills</strong></div>
+            <label for="skills"><strong>Skills:</strong></label>
+            <input type="text" name="skills" id="skills" required><br><br>
+
+            <!-- Education Section -->
+            <div class="personal"><strong>Education</strong></div>
+            <label for="education"><strong>Education:</strong></label>
+            <textarea name="education" id="education" required></textarea><br><br>
+
+            <!-- Experience Section -->
+            <div class="personal"><strong>Experience</strong></div>
+            <label for="experience"><strong>Work Experience</strong></label>
+            <textarea name="experience" id="experience" required></textarea><br><br>
+
+            <input type="button" value="Generate Resume" onclick="generateResume()">
+        </form>
+
+        <div id="resumeOutput" class="resume-output" style="display:none; margin-top: 20px;">
+            <h2>Generated Resume</h2>
+            <img id="outputImage" alt="Profile Picture" style="max-width: 150px; display: block; margin-bottom: 20px;">
+            <p><strong>Name:</strong> <span id="outputName"></span></p>
+            <p><strong>Email:</strong> <span id="outputEmail"></span></p>
+            <p><strong>Phone:</strong> <span id="outputPhone"></span></p>
+            <p><strong>Address:</strong> <span id="outputAddress"></span></p>
+            <p><strong>Skills:</strong> <span id="outputSkills"></span></p>
+            <p><strong>Education:</strong></p>
+            <p id="outputEducation"></p>
+            <p><strong>Experience:</strong></p>
+            <p id="outputExperience"></p>
+
+            <!-- Unique Path and Shareable Link -->
+            <div id="shareableLink" style="margin-top: 20px;">
+                <strong>Shareable Link:</strong> 
+                <a id="uniqueLink" href="#" target="_blank">Your unique link will appear here</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateResume() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const skills = document.getElementById('skills').value;
+            const education = document.getElementById('education').value;
+            const experience = document.getElementById('experience').value;
+
+            document.getElementById('outputName').textContent = name;
+            document.getElementById('outputEmail').textContent = email;
+            document.getElementById('outputPhone').textContent = phone;
+            document.getElementById('outputAddress').textContent = address;
+            document.getElementById('outputSkills').textContent = skills;
+            document.getElementById('outputEducation').textContent = education;
+            document.getElementById('outputExperience').textContent = experience;
+
+            const picture = document.getElementById('picture').files[0];
+            if (picture) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('outputImage').src = e.target.result;
+                    document.getElementById('outputImage').style.display = 'block';
+                }
+                reader.readAsDataURL(picture);
+            }
+
+            // Generate unique path (UUID)
+            const uniqueID = 'resume-' + Math.random().toString(36).substr(2, 9);
+            const baseUrl = window.location.href.split('?')[0];
+            const shareableLink = `${baseUrl}?id=${uniqueID}`;
+            document.getElementById('uniqueLink').href = shareableLink;
+            document.getElementById('uniqueLink').textContent = shareableLink;
+
+            document.getElementById('resumeOutput').style.display = 'block';
+            document.getElementById('resumeform').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
